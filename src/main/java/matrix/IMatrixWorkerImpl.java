@@ -4,16 +4,6 @@ import java.util.InputMismatchException;
 
 public class IMatrixWorkerImpl implements IMatrixWorker {
 
-	private double[][] m;
-
-	public double[][] getMatrix() {
-		return m;
-	}
-
-	public void setMatrix(double[][] m) {
-		this.m = m;
-	}
-
 	@Override
 	public void print(double[][] m) {
 		if (m == null) {
@@ -50,8 +40,8 @@ public class IMatrixWorkerImpl implements IMatrixWorker {
 		if (!haveSameDimension(m1, m2)) {
 			throw new InputMismatchException();
 		}
-		for (int i = 0; i < m.length; i++) {
-			for (int j = 0; j < m[i].length; j++) {
+		for (int i = 0; i < m1.length; i++) {
+			for (int j = 0; j < m1[i].length; j++) {
 				m1[i][j] += m2[i][j];
 			}
 		}
@@ -63,8 +53,8 @@ public class IMatrixWorkerImpl implements IMatrixWorker {
 		if (!haveSameDimension(m1, m2)) {
 			throw new InputMismatchException();
 		}
-		for (int i = 0; i < m.length; i++) {
-			for (int j = 0; j < m[i].length; j++) {
+		for (int i = 0; i < m1.length; i++) {
+			for (int j = 0; j < m1[i].length; j++) {
 				m1[i][j] -= m2[i][j];
 			}
 		}
@@ -150,7 +140,7 @@ public class IMatrixWorkerImpl implements IMatrixWorker {
 		}
 	}
 
-	public static void main(String args[]) {
+/*	public static void main(String args[]) {
 		double[][] d1 = new double[2][3];
 		double[][] d2 = new double[3][2];
 		IMatrixWorkerImpl m1 = new IMatrixWorkerImpl();
@@ -158,5 +148,5 @@ public class IMatrixWorkerImpl implements IMatrixWorker {
 		m1.setMatrix(m2.multiply(d1, d2));
 		double[][] d3 = { { 1, 2 }, { 3, 4 } };
 		m1.kramer(d3, new double[2], new double[2]);
-	}
+	}*/
 }
