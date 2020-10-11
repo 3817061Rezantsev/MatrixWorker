@@ -68,9 +68,9 @@ public class IMatrixWorkerImpl implements IMatrixWorker {
 		}
 		double[][] res = new double[m1.length][m2[0].length];
 		for (int i = 0; i < m1.length; i++)
-			for (int j = i; j < m2[0].length; j++) {
-				for (int k = i; k <= j; k++)
-					res[i][j - i] += m1[i][k - i] * m2[k][j - k];
+			for (int j = 0; j < m2[0].length; j++) {
+				for (int k = 0; k < m2.length; k++)
+					res[i][j] += m1[i][k] * m2[k][j];
 			}
 		return res;
 
