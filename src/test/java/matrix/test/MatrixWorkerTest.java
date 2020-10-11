@@ -68,5 +68,15 @@ public class MatrixWorkerTest {
         assertEquals(1, m.length);
         assertEquals(1, m[0].length);
         assertEquals(14, m[0][0]);
+
+        m1 = new double[][] { { 1d, 2d, 3d }, { 4d, 5d, 6d } };
+        m2 = new double[][] { { 1d, 2d }, { 3d, 4d }, { 5d, 6d } };
+        m = worker.multiply(m1, m2);
+        assertEquals(2, m.length);
+        assertEquals(2, m[0].length);
+        assertEquals(22, m[0][0]);
+        assertEquals(28, m[0][1]);
+        assertEquals(49, m[1][0]);
+        assertEquals(64, m[1][1]);
     }
 }
