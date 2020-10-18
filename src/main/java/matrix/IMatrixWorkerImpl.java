@@ -78,7 +78,7 @@ public class IMatrixWorkerImpl implements IMatrixWorker {
 
 	public double determ(double[][] a, int size) {
 		int i, j;
-		double det = 1;
+		double det = 0;
 		double[][] matr;
 		if (!haveSameDimension(a, a)) {
 			throw new InputMismatchException();
@@ -110,12 +110,13 @@ public class IMatrixWorkerImpl implements IMatrixWorker {
 		return det;
 	}
 
-	public void kramer(double[][] a, double[] b, double[] x) {
+	public double[] kramer(double[][] a, double[] b) {
 		int size = a.length;
 		if (!haveSameDimension(a, a)) {
 			throw new InputMismatchException();
 		}
 		double[] dets = new double[size];
+		double[] x = new double[size];
 		double det = determ(a, size);
 		if (det != 0) {
 			for (int i = 0; i < size; i++) {
@@ -135,18 +136,9 @@ public class IMatrixWorkerImpl implements IMatrixWorker {
 			}
 		} else {
 			for (int m = 0; m < size; m++) {
-				x[m] = -1;
+				x[m] = -1d;
 			}
 		}
+		return x;
 	}
-
-/*	public static void main(String args[]) {
-		double[][] d1 = new double[2][3];
-		double[][] d2 = new double[3][2];
-		IMatrixWorkerImpl m1 = new IMatrixWorkerImpl();
-		IMatrixWorkerImpl m2 = new IMatrixWorkerImpl();
-		m1.setMatrix(m2.multiply(d1, d2));
-		double[][] d3 = { { 1, 2 }, { 3, 4 } };
-		m1.kramer(d3, new double[2], new double[2]);
-	}*/
 }
